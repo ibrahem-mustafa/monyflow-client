@@ -1,0 +1,59 @@
+<div style="max-width: 400px" class="mx-auto py-5">
+  <ngb-toast
+    *ngIf="hasError"
+    [delay]="2000"
+    [autohide]="true"
+    (hidden)="hasError = false"
+    class="bg-danger text-center text-white"
+    style="position: fixed; top: 60px; left: 20px; z-index:9"
+  >
+    {{errorMsg}}
+  </ngb-toast>
+  <div class="row">
+    <div class="col-sm-12 mb-2">
+      <h1 class="text-center">Login</h1>
+      <hr>
+    </div>
+
+    <div class="col-sm-12 mb-2">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="example@gmail.com"
+        [(ngModel)]="email"
+      />
+    </div>
+
+    <div class="col-sm-12 mb-2">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+    </div>
+
+    <div class="col-sm-12 mb-2" style="text-align: center">
+      <button
+        class="btn btn-primary"
+        (click)="login()"
+        [disabled]="isDisabled()"
+      >
+        Login
+      </button>
+    </div>
+
+    <div class="col-sm-12 mb-2" style="text-align: center">
+      <a
+        class="btn btn-link"
+        routerLink="/signup"
+      >
+        Create New Account
+      </a>
+    </div>
+  </div>
+</div>

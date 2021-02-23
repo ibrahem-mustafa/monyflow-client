@@ -1,0 +1,38 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ editMode ? 'Update Article' : 'Create New Article' }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-2">
+      <label for="articleTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="articleTitle" placeholder="Article Title" [(ngModel)]="articleTitle" >
+    </div>
+    <div class="mb-2">
+      <label for="articleContent" class="form-label">Article Content</label>
+      <textarea class="form-control" id="articleContent"  placeholder="Article Content" rows="3" [(ngModel)]="articleContent"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)=" editMode ? updateArticleRequest(content) : createArticle()">Save</button>
+  </div>
+</ng-template>
+
+<div>
+  <app-default-bar (articleCreated)="articles.push($event)" [articleModal]="content"></app-default-bar>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let article of articles">
+      <app-article-card
+        [height]="200"
+        [id]="article._id"
+        [title]="article.title"
+        [content]="article.content.slice(0, 60)"
+        (deleteArticle)="deleteArticle($event)"
+        (updateArticle)="updateArticle($event, content)"
+      ></app-article-card>
+    </div>
+  </div>
+</div>

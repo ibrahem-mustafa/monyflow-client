@@ -1,0 +1,24 @@
+// required to install
+1: bootstrap => (ng add @ng-bootstrap/ng-bootstrap)
+
+**************************************
+
+// Authentication System
+=> login
+=> singup
+
+// CMS (Content Management System)
+*** For Each Publisher ***
+=> all articles
+=> add article
+=> update article
+=> delete article
+
+// Admin Pages
+=> all users
+=> update user role
+=> delete user
+
+// For All Users
+=> all articles
+=> article details

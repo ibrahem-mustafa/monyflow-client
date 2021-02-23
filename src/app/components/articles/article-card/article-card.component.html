@@ -1,0 +1,11 @@
+<div class="card" [ngStyle]="getStyle()"  >
+    <div class="card-body">
+
+      <h5 class="card-title" (click)="navigateToArticle()" >{{title}}</h5>
+      <p class="card-text">
+        {{content}}
+      </p>
+
+      <app-article-actions (deleteArticle)="deleteArt()" (updateArticle)="updateArt()"  [articleId]="id"  ></app-article-actions>
+    </div>
+  </div>

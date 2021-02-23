@@ -1,0 +1,10 @@
+<div class="row my-5">
+    <div class="col-md-4" *ngFor="let article of articles">
+      <app-article-card
+        [id]="article._id"
+        [title]="article.title"
+        [content]="article.content.slice(0, 60)"
+        class="m-1"
+      ></app-article-card>
+    </div>
+  </div>
